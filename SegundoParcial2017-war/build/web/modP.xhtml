@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h3>Editar Pelicula<h:outputText value="#{inicioBean.flm.title}"/></h3>   
+        
+        title <h:inputText></h:inputText>
+        <br></br>
+        <br></br>
+        description<h:inputText></h:inputText>
+        <br></br>
+        <br></br>
+        rentalDuration<h:inputText></h:inputText>
+        <br></br>
+        <br></br>
+        releaseYear<h:inputText></h:inputText>
+        <br></br>
+        <br></br>
+        rentalRate<h:inputText></h:inputText>
+        <br></br>
+        <br></br>
+        fLength<h:inputText></h:inputText>
+        <br></br>
+        <br></br>
+        replacementCost<h:inputText></h:inputText>
+        <br></br>
+        <br></br>
+        specialFeatures<h:inputText></h:inputText>
+        <br></br>
+        <br></br>
+        <h:selectOneMenu value="#{formBean.originalLanguageId}">
+                <f:selectItem itemLabel="Select OrigLeng"/>
+                <f:selectItems value="#{formBean.olang}"/>
+            </h:selectOneMenu>
+        <br></br>
+        <br></br>
+        <h:selectOneMenu value="#{formBean.languageId}">
+                <f:selectItem itemLabel="Select OrigLeng"/>
+                <f:selectItems value="#{formBean.lang}"/>
+            </h:selectOneMenu>
+        <br></br>
+        <br></br>
+        <h:selectOneMenu value="#{formBean.ratingId}">
+                <f:selectItem itemLabel="Select OrigLeng"/>
+                <f:selectItems value="#{formBean.rat}"/>
+            </h:selectOneMenu>
+        <h:commandButton value="edit" action="#{formBean.goBack()}"/>
+        </h:form>
+    </h:body>
+</html>
+
