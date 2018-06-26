@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:dataTable value="#{formBean.getMd(clientesBean.cs)}" var="medicion" border="1">
+            <h:column>
+                <f:facet name="header">Codigo cliente</f:facet>
+                #{medicion.cliente.codigo}
+            </h:column>
+             <h:column>
+                <f:facet name="header">Fecha</f:facet>
+            #{medicion.fechahora}
+                </h:column>
+               <h:column>
+                <f:facet name="header">id</f:facet>
+            #{medicion.idmedicion}
+                 </h:column>
+             <h:column>
+                <f:facet name="header">kw</f:facet>
+            #{medicion.kw}
+                </h:column>
+        </h:dataTable>
+        <br></br>
+        <h:form>
+            Introduzca los Kw para añadir una nueva medicion<br></br><h:inputText id="kw" value="#{formBean.kw}" converterMessage="debe ser un numero decimal" required="true" requiredMessage="CAmpo Obligatorio"/>
+            
+            
+            <h:commandButton action="#{formBean.vistaClientes(clientesBean.cs)}" value="añadir"/>
+            <br></br>
+            <h:message for="kw" style="color: red"/>
+        </h:form>
+    </h:body>
+</html>
+

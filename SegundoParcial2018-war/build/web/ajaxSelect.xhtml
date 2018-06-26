@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        <h:selectOneMenu id="selec" value="#{clientesBean.p}">
+        <f:selectItem itemLabel="--Elige Provincia--"/>
+        <f:selectItems value="#{clientesBean.pr}"/>
+        <f:ajax render="tab"/>
+        </h:selectOneMenu>
+        
+        <h:dataTable id="tab" value="#{clientesBean.cl}" var="cliente" border="1">
+            <h:column>
+                <f:facet name="header">Codigo</f:facet>
+                #{cliente.codigo}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Apellido1</f:facet>
+                #{cliente.apellido}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Apellido2</f:facet>
+                #{cliente.apellido2}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                #{cliente.nombre}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Poblacion</f:facet>
+                #{cliente.codigoprovincia.provincia}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Provincia</f:facet>
+                #{cliente.codigopoblacion.poblacion}
+            </h:column>
+        </h:dataTable>
+          </h:form>  
+    </h:body>
+</html>
+
