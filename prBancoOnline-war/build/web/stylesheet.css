@@ -1,0 +1,126 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 9-apr-2018, 9:16:53
+    Author     : Elise
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f7fa;
+}
+
+.transferencia {
+    border: solid 2px #ece8e7;
+    background: #f5f7fa;
+    color: #000000;
+    padding: 4px;
+    width: 900px;
+    height: 500px;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.transferencia h2 {
+    text-align: center;
+}
+
+.transferencia table {
+    border: 1px solid black;
+    width: 890px;
+    padding: 2px;
+}
+
+.trans form {
+    float: right;
+}
+
+.trans {
+    width: 900px;
+    margin: 0 auto;
+    height: 700px;
+}
+
+.session {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    margin-bottom: 10px;
+}
+
+#formLogin {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 300px;
+}
+
+#formLogin h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form {
+    width:450px;
+    margin: 0 auto;
+    height: 900px;
+}
+
+.form li {
+    margin-top: 10px;
+    float: right;
+    list-style-type: none;
+}
+
+.form h3 {
+    text-align: center;
+}
+
+/* TABS */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #91b6f2;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: #91b6f2;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    text-color:#0062ff
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #cedbf0;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color:#cedbf0
+}
+
+.tabcontent2 {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color:#cedbf0
+}

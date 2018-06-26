@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+    <script type="text/javascript" src="js/cambiarPestanna.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<style>
+body {
+    background: #91b6f2;    
+}
+#pestanas {
+    float: top;
+    font-size: 3ex;
+    font-weight: bold;
+}
+#pestanas ul{
+    clear: both;  
+    background: #f5f7fa;
+    padding: 20px 0px 20px 20px;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border: 2px solid #f5f7fa;
+    width: 1025px;
+}
+body {font-family: Arial;
+background-color:#f5f7fa;}
+/* Style the tab */
+.background{
+	background-color: #91b6f2;
+}
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #91b6f2;
+}
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: #91b6f2;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    text-color:#0062ff
+}
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #cedbf0;
+}
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color:#cedbf0
+}
+</style>
+</head>
+<body onload="javascript:cambiarPestanna(pestanas,pestana1);">
+
+<p>Click on the buttons inside the tabbed menu:</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Movimientos')">Movimientos</button>
+  <button class="tablinks" onclick="openCity(event, 'Transferencias')">Transferencias</button>
+  <button class="tablinks" onclick="openCity(event, 'Buscar')">Buscar</button>
+</div>
+
+<div id="Movimientos" class="tabcontent">
+  <h3>Movimientos</h3>
+  <div class="contenedor">
+      
+        <div id="pestanas">
+            <ul id=lista>
+                <li id="pestana1"><a href='javascript:cambiarPestanna(pestanas,pestana1);'>Balance</a></li>
+                <li id="pestana2"><a href='javascript:cambiarPestanna(pestanas,pestana2);'>Ingresos</a></li>
+                <li id="pestana3"><a href='javascript:cambiarPestanna(pestanas,pestana3);'>Gastos</a></li>
+            </ul>
+        </div>
+
+        
+  
+        <div id="contenidopestanas">
+            
+            <div id="cpestana2">
+                Contenido de la pestaña 2
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div id="Transferencias" class="tabcontent">
+  <h3>Transferencias</h3>
+  
+    
+    <jsp:include page=“Transferencias.jsp" flush="true" />
+</div>
+	
+<div id="Buscar" class="tabcontent">
+  <h3>Buscar</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+<script>
+// Dadas la division que contiene todas las pestañas y la de la pestaña que se 
+// quiere mostrar, la funcion oculta todas las pestañas a excepcion de esa.
+function cambiarPestanna(pestannas,pestanna) {
+    
+    // Obtiene los elementos con los identificadores pasados.
+    pestanna = document.getElementById(pestanna.id);
+    listaPestannas = document.getElementById(pestannas.id);
+    
+    // Obtiene las divisiones que tienen el contenido de las pestañas.
+    cpestanna = document.getElementById('c'+pestanna.id);
+    listacPestannas = document.getElementById('contenido'+pestannas.id);
+    
+    i=0;
+    // Recorre la lista ocultando todas las pestañas y restaurando el fondo 
+    // y el padding de las pestañas.
+    while (typeof listacPestannas.getElementsByTagName('div')[i] != 'undefined'){
+        $(document).ready(function(){
+            $(listacPestannas.getElementsByTagName('div')[i]).css('display','none');
+            $(listaPestannas.getElementsByTagName('li')[i]).css('background','');
+            $(listaPestannas.getElementsByTagName('li')[i]).css('padding-bottom','');
+        });
+        i += 1;
+    }
+    $(document).ready(function(){
+        // Muestra el contenido de la pestaña pasada como parametro a la funcion,
+        // cambia el color de la pestaña y aumenta el padding para que tape el  
+        // borde superior del contenido que esta juesto debajo y se vea de este 
+        // modo que esta seleccionada.
+        $(cpestanna).css('display','');
+        $(pestanna).css('background','dimgray');
+        $(pestanna).css('padding-bottom','2px'); 
+    });
+}
+</script>
+     
+</body>
+</html> 
