@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <div class="form">
+            <h3>Crear un nuevo usuario</h3>
+            <h:form>
+                <div class="form-group">
+                    <label>DNI<font color="#FF0000"> *</font></label>
+                    <h:inputText class="form-control" size="40" id="dni" value="#{crearUsuarioBean.dniParam}" required="true" requiredMessage="Este campo es obligatorio" validator="#{crearUsuarioBean.validateDni}">
+                    </h:inputText>
+                    <h:message for="dni" styleClass="error"/>
+                </div>
+                <div class="form-group">
+                    <label>Usuario<font color="#FF0000"> *</font></label>
+                    <h:inputText class="form-control" id="usuario" size="40" value="#{crearUsuarioBean.usuarioParam}" required="true" requiredMessage="Este campo es obligatorio" validator="#{crearUsuarioBean.validateUsuario}"/>
+                    <h:message for="usuario" styleClass="error"/>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña<font color="#FF0000"> *</font></label>
+                    <h:inputText id="contraseña" class="form-control" size="40" required="true" value="#{crearUsuarioBean.contrasenaParam}" requiredMessage="Este campo es obligatorio"/>
+                    <h:message for="contraseña" styleClass="error"/>
+                </div>
+                <div class="form-group">
+                    <label>Nombre<font color="#FF0000"> *</font></label>
+                    <h:inputText id="nombre" class="form-control" size="40" value="#{crearUsuarioBean.nombreParam}" required="true" requiredMessage="Este campo es obligatorio" />
+                     <h:message for="nombre" styleClass="error"/>
+                </div>
+                <div class="form-group">
+                    <label>Apellidos<font color="#FF0000"> *</font></label>
+                    <h:inputText id="apellidos" class="form-control" size="40" value="#{crearUsuarioBean.apellidosParam}" required="true" requiredMessage="Este campo es obligatorio" />
+                 <h:message for="apellidos" styleClass="error"/>
+                </div>
+                <div class="form-group">
+                    <label>Domicilio<font color="#FF0000"> *</font></label>
+                    <h:inputText id="domicilio" class="form-control" size="40" value="#{crearUsuarioBean.domicilioParam}" required="true" requiredMessage="Este campo es obligatorio"/>
+                    <h:message for="domicilio" styleClass="error"/>
+                </div>
+                <div class="form-group">
+                    <label>Teléfono<font color="#FF0000"> *</font></label>
+                    <h:inputText id="telef" class="form-control" size="40" value="#{crearUsuarioBean.telefonoParam}" required="true" requiredMessage="Este campo es obligatorio" converterMessage="El telefono solo debe contener caracteres numéricos"/>
+                     <h:message for="telef" styleClass="error"/>
+                </div>
+                 <div class="form-group">
+                    <label>Email</label>
+                    <h:inputText class="form-control" size="40" value="#{crearUsuarioBean.emailParam}"/>
+                </div>
+                <h:commandButton class="btn btn-primary" value="Crear" action="#{crearUsuarioBean.crearUsuario()}"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

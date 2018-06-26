@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <div class="form">
+             <div class="form-group" style="margin-top: 25px">
+            <h3 ><b>Ingresar o retirar fondos</b></h3>
+            </div>
+           
+            <h5 style="text-align: center; margin-top:25px;"><b>Usuarios disponibles</b></h5>
+            
+            <div class="form-group" style="margin-bottom:25px;  overflow: auto; height: 100px">
+            <h:dataTable value="#{loginBean.usuarios}" var="user" style="width: 450px; background: whitesmoke" >
+                <h:column>
+                <f:facet name="header">Cuenta</f:facet>
+                #{user.NCuenta}
+                </h:column>
+                <h:column>
+                <f:facet name="header">DNI</f:facet>
+                #{user.dni}
+                </h:column>
+                    <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                #{user.nombre}
+                </h:column>
+                    <h:column>
+                <f:facet name="header">Apellidos</f:facet>
+                #{user.apellidos}
+                </h:column>
+                </h:dataTable>
+            </div>
+            <h:form>
+                <div class="form-group">
+                    <select class="form-control" name="operacion">
+                      <option value="-1">Retirar</option>
+                      <option value="1">Ingresar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Numero de Cuenta<span style="color: red">*</span></label>
+                    <h:inputText  id="cuenta"  label="Numero" class="form-control" size="40" converterMessage="La entrada debe ser un valor numerico" validator="#{crearOperacionBean.validateCuenta}" required="true"   requiredMessage="Este campo es obligatorio"  value="#{crearOperacionBean.cuentaParam}">
+                        
+                    </h:inputText>
+                    <h:message for="cuenta" styleClass="error"/>
+                </div>
+                <div class="form-group">
+                    <label>Concepto<span style="color: red">*</span></label>
+                    <h:inputText id="concepto" class="form-control" size="40" required="true" requiredMessage="Este campo es obligatorio" value="#{crearOperacionBean.conceptoParam}"/>
+                <h:message for="concepto" styleClass="error"/>
+                </div>
+                <div class="form-group">
+                    <label>Entidad<span style="color: red">*</span></label>
+                    <h:inputText  id="entidad" class="form-control" size="40" required="true" requiredMessage="Este campo es obligatorio" value="#{crearOperacionBean.entidadParam}"/>
+                <h:message for="entidad" styleClass="error"/>
+                </div>
+                <div class="form-group">
+                    <label>Cantidad<span style="color: red">*</span></label>
+                    <h:inputText id="cantidad" class="form-control" size="40" required="true" converterMessage="La entrada debe ser un valor numerico" requiredMessage="Este campo es obligatorio" validatorMessage="La cantidad debe ser mayor que 0" value="#{crearOperacionBean.cantidadParam}"/>
+               <h:message for="cantidad" styleClass="error"/>
+                </div>
+                <div class="form-group">
+                    <label>Descripcion</label>
+                    <h:inputText class="form-control" size="40" value="#{crearOperacionBean.descripcionParam}"/>
+                </div>
+                <h:commandButton id="boton" class="btn btn-primary" value="Hacer operación" action="#{crearOperacionBean.hacerOperacion()}"/>   
+                </h:form>
+            <h4 style="margin-top: 25px; color: red"><h:outputText  value="Operacion no completada, no hay tanto saldo en la cuenta seleccionada" rendered="#{crearOperacionBean.message}"/></h4>
+        </div>
+    </h:body>
+</html>
+
